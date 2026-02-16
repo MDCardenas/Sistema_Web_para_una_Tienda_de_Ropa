@@ -1,0 +1,133 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Catalogo | Nexo Streetwear',
+  description: 'Catalogo Completo',
+};
+
+const catalogo = [
+  {
+    nombre: 'Chaqueta Nexo Streetwear',
+    precio: 'L. 1000',
+    img: 'https://mdcardenas.github.io/Imagenes_Sistemas_Expertos/Tienda de Ropa/Catalogo/Chaqueta.png',
+  },
+  {
+    nombre: 'Falda Nexo Streetwear',
+    precio: 'L. 900',
+    img: 'https://mdcardenas.github.io/Imagenes_Sistemas_Expertos/Tienda de Ropa/Catalogo/Falda.png',
+  },
+  {
+    nombre: 'Gorra Nexo Streetwear',
+    precio: 'L. 600',
+    img: 'https://mdcardenas.github.io/Imagenes_Sistemas_Expertos/Tienda de Ropa/Catalogo/Gorra.png',
+  },
+  {
+    nombre: 'Gorro Nexo Streetwear',
+    precio: 'L. 500',
+    img: 'https://mdcardenas.github.io/Imagenes_Sistemas_Expertos/Tienda de Ropa/Catalogo/Gorro.png',
+  },
+  {
+    nombre: 'Calzoneta Nexo Streetwear',
+    precio: 'L. 700',
+    img: 'https://mdcardenas.github.io/Imagenes_Sistemas_Expertos/Tienda de Ropa/Catalogo/Calzoneta.png',
+  },
+  {
+    nombre: 'Zapatos Nexo Streetwear',
+    precio: 'L. 800',
+    img: 'https://mdcardenas.github.io/Imagenes_Sistemas_Expertos/Tienda de Ropa/Catalogo/Zapatos.png',
+  },
+];
+
+const productosEnOferta = [
+  {
+    nombre: 'Buzo Nexo Streetwear',
+    precioOriginal: 'L. 850',
+    precioOferta: 'L. 450',
+    descuento: '47% OFF',
+    img: 'https://mdcardenas.github.io/Imagenes_Sistemas_Expertos/Tienda de Ropa/Catalogo/Buzo.png',
+  },
+  {
+    nombre: 'Sudadera Nexo Streetwear',
+    precioOriginal: 'L. 1,200',
+    precioOferta: 'L. 750',
+    descuento: '35% OFF',
+    img: 'https://mdcardenas.github.io/Imagenes_Sistemas_Expertos/Tienda de Ropa/Catalogo/Sudadera.png',
+  },
+  {
+    nombre: 'Camisa Nexo Streetwear',
+    precioOriginal: 'L. 1,500',
+    precioOferta: 'L. 900',
+    descuento: '40% OFF',
+    img: 'https://mdcardenas.github.io/Imagenes_Sistemas_Expertos/Tienda de Ropa/Catalogo/Camisa.png',
+  },
+];
+---
+<Layout metadata={metadata}>
+  <section class="max-w-7xl mx-auto py-16 px-4">
+    <div class=" mb-16">
+      <h1 class="text-4xl font-extrabold text-orange-600 mb-4">Catalogo</h1>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+       {productosEnOferta.map((item) => (
+        <div class="group border rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all bg-black">
+          
+          {/* Contenedor de imagen relativo */}
+          <div class="relative h-80 overflow-hidden">
+            
+            
+            <span class="absolute top-4 left-4 bg-orange-500 text-black px-3 py-1 rounded-full text-sm font-bold z-20 shadow-lg">
+              {item.descuento}
+            </span>
+            
+            <img 
+              src={item.img} 
+              alt={item.nombre} 
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+            />
+            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+          </div>
+
+          <div class="p-6">
+            <h2 class="text-2xl font-bold mb-2">{item.nombre}</h2>
+            <div class="flex items-center gap-3 mb-6">
+              <span class="text-white line-through text-lg">{item.precioOriginal}</span>
+              <span class="text-orange-600 text-3xl font-black">{item.precioOferta}</span>
+            </div>
+            
+            <button class="w-full bg-orange-500 hover:bg-orange-600 text-black font-bold py-3 rounded-xl transition-colors">
+              Comprar Ahora
+            </button>
+          </div>
+        </div>
+      ))}
+      {catalogo.map((item) => (
+        <div class="group border rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all bg-black">
+          
+          {/* Contenedor de imagen relativo */}
+          <div class="relative h-80 overflow-hidden">
+            
+            <img 
+              src={item.img} 
+              alt={item.nombre} 
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+            />
+            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+          </div>
+
+          <div class="p-6">
+            <h2 class="text-2xl font-bold mb-2">{item.nombre}</h2>
+            <div class="flex items-center gap-3 mb-6">
+              <span class="text-white text-lg">{item.precio}</span>
+            </div>
+            
+            <button class="w-full bg-orange-500 hover:bg-orange-600 text-black font-bold py-3 rounded-xl transition-colors">
+              Comprar Ahora
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

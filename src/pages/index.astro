@@ -1,0 +1,236 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Nexo',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero 
+     image={{ src: 'https://mdcardenas.github.io/Imagenes_Sistemas_Expertos/Tienda de Ropa/Pagina Principal/Nexo.png', alt: 'Nexo.png'}}>
+    <Fragment slot="title">
+      Nexo Streetwear: <span class="hidden xl:inline">Eleva tu estilo. Conecta con la calle</span>
+      <span class="text-accen text-orange-400"> Estilo en Movimiento</span>
+    </Fragment>
+  </Hero>
+  <Features
+    id="features"
+    tagline="Sobre Nosotros"
+    title="Para conectar Emocionalmente con tus clientes"
+    subtitle="En NEXO, creemos que la ropa no es solo tela; es el puente entre quién eres y cómo te mueves por el mundo. No seguimos tendencias, creamos conexiones. Diseñado para los que caminan la ciudad, para los que rompen las reglas y para los que buscan un estilo que hable por ellos."
+    items={[
+      {
+        title: 'Drops Temáticos',
+        description:
+          'Lanzamientos exclusivos inspirados en subculturas urbanas, donde cada colección cuenta una historia única del asfalto.',
+        icon: 'tabler:bolt',
+        classes: {
+        icon: 'bg-orange-500 shadow-orange-500/50', 
+      },
+      },
+      {
+        title: 'Nexo ID Interactivo',
+        description:
+          'Conectamos tu prenda con el mundo digital mediante códigos QR que desbloquean playlists y contenido exclusivo de la marca.',
+        icon: 'tabler:users-group',
+        classes: {
+        icon: 'bg-orange-500 shadow-orange-500/50', 
+      },
+      },
+      {
+        title: 'Sostenibilidad Urbana',
+        description:
+          'Moda consciente que utiliza materiales reciclados y tejidos de alta densidad para asegurar una durabilidad superior.',
+        icon: 'tabler:sparkles',
+        classes: {
+        icon: 'bg-orange-500 shadow-orange-500/50', 
+      },
+      },
+      {
+        title: 'Packaging de Impacto',
+        description:
+          'Diseñado para elevar tu experiencia desde el primer segundo con estética neón, materiales premium y stickers exclusivos.',
+        icon: 'tabler:box',
+        classes: {
+        icon: 'bg-orange-500 shadow-orange-500/50', 
+      },
+      },
+      {
+        title: 'Comunidad NEXO',
+        description:
+          "No somos solo una tienda; somos un punto de encuentro para creativos y apasionados por la cultura callejera.",
+        icon: 'tabler:wifi',
+        classes: {
+        icon: 'bg-orange-500 shadow-orange-500/50',
+      },
+      },
+      {
+        title: 'Ediciones Limitadas',
+        description:
+          'Priorizamos la exclusividad sobre la masa. Una vez que un Drop se agota, se convierte en una pieza de colección.',
+        icon: 'tabler:flame',
+        classes: {
+        icon: 'bg-orange-500 shadow-orange-500/50', 
+      },
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    title="NEXO Streetwear: Donde la Calle dicta las Reglas"
+    items={[
+      {
+        title: 'Diseño Vanguardista',
+        description:
+          'Nos alejamos de lo genérico. Cada patrón es estudiado para ofrecer un ajuste perfecto y una silueta moderna.',
+      },
+      {
+        title: 'Conexión con la Escena',
+        description:
+          'Colaboramos con artistas locales para asegurar que cada drop sea una representación auténtica de la cultura callejera.',
+      },
+      {
+        title: 'Durabilidad Garantizada',
+        description:
+          'Probamos nuestras prendas en entornos reales. Tu ropa NEXO está hecha para verse bien hoy y dentro de dos años.',
+      },
+    ]}
+     image={{
+      src: 'https://mdcardenas.github.io/Imagenes_Sistemas_Expertos/Tienda de Ropa/Pagina Principal/Nexo_Catalogo.png',
+      alt: 'Blueprint Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Gana una ventaja estética incorporando piezas diseñadas bajo los estándares más altos del streetwear moderno.</h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+   <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Ver Catalogo',
+        href: getPermalink('/homes/catalogo'),
+        icon: 'tabler:shopping-cart',
+      },
+    ]}
+    classes={{ actions: 'bg-orange-500 shadow-orange-500/50 border-none' }}
+  >
+    <Fragment slot="title">
+      Explora el Nexo:&nbsp;&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Catálogo Completo</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      No esperes a que alguien más lo lleve puesto. Descubre todos nuestros drops disponibles, desde piezas básicas de alta calidad hasta ediciones limitadas que no volverán.
+    </Fragment>
+  </CallToAction>
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="De la Tienda a tu Armario: El Viaje de tu Style NEXO"
+    items={[
+      {
+        title: 'Paso 1:Explora el Drop',
+        description:
+          "Navega por nuestra selección de colecciones limitadas. Cada prenda ha sido diseñada para capturar la esencia de la cultura urbana. Elige tus piezas favoritas antes de que se agoten para siempre.",
+        icon: 'tabler:square-rounded-number-1',
+        classes: {
+        icon: 'bg-orange-500 shadow-orange-500/50 border-none',
+      },
+      },
+      {
+        title: 'Paso 2: Conecta con tu Estilo',
+        description:
+          "Selecciona tu talla (revisa nuestra guía oversize) y añade al carrito. No olvides que cada compra es un ticket de entrada a nuestra comunidad exclusiva y al contenido digital de NEXO ID.",
+        icon: 'tabler:square-rounded-number-2',
+        classes: {
+        icon: 'bg-orange-500 shadow-orange-500/50 border-none',
+      },
+      },
+      {
+        title: 'Paso 3: Recibe y Domina el Asfalto',
+        description:
+          'Nuestro sistema de envío "Flash" procesa tu pedido al instante. Recibe tu paquete con packaging premium, escanea tu código QR exclusivo y prepárate para salir a la calle.',
+        icon: 'tabler:square-rounded-number-3',
+        classes: {
+        icon: 'bg-orange-500 shadow-orange-500/50 border-none',
+      },
+      },
+      {
+        title: 'Paso 4: ¡Listo para la Ciudad!',
+        description:
+        'Ya eres parte del nexo. Comparte tu outfit en redes usando #NEXOStreetwear y etiqueta a la comunidad para aparecer en nuestro feed oficial.',
+        icon: 'tabler:square-rounded-number-4',
+        classes: {
+        icon: 'bg-orange-500 shadow-orange-500/50 border-none',
+      },
+      },
+    ]}
+    image={{
+      src: 'https://mdcardenas.github.io/Imagenes_Sistemas_Expertos/Tienda de Ropa/Pagina Principal/Nexo_Catalogo_2.png',
+      alt: 'Steps image',
+    }}
+  />
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Preguntas Frecuentes"
+    subtitle="Explora las dudas más comunes sobre nuestras colecciones, envíos y la filosofía NEXO para mejorar tu experiencia de compra."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl', color: 'orange-500' }}
+    items={[
+      {
+        title: '1. ¿Qué son los "Drops" y por qué son limitados?',
+        description:
+          "Nuestros Drops son lanzamientos exclusivos de colecciones cápsula. Producimos cantidades limitadas para garantizar la exclusividad de cada diseño y reducir el desperdicio textil. Una vez que un artículo se agota, no vuelve a producirse.",
+      },
+      {
+        title: '2. ¿Cómo puedo saber mi talla exacta?',
+        description:
+          'En cada página de producto encontrarás una Guía de Tallas detallada con medidas en centímetros. Nuestras prendas suelen tener un corte oversize (holgado) típico del streetwear; si prefieres un ajuste más entallado, te recomendamos pedir una talla menos de la habitual.',
+      },
+      {
+        title: '3. ¿Cuánto tarda en llegar mi pedido?',
+        description:
+          'El tiempo de entrega estándar es de 2 a 5 días hábiles dependiendo de tu ubicación. Una vez que tu pedido sale de nuestro almacén, recibirás un correo con el número de seguimiento para que puedas monitorear tu "Nexo" en tiempo real.'
+      },
+      {
+        title: '4. ¿Qué es el "Nexo ID" que viene en mi prenda?',
+        description:
+          "Es nuestra tecnología de conexión. Cada prenda cuenta con un código QR único en la etiqueta interna. Al escanearlo, accedes a contenido exclusivo: la playlist oficial del Drop, el número de serie de tu pieza y acceso anticipado a próximos lanzamientos.",
+      },
+      {
+        title: '5. ¿Realizan envíos internacionales?',
+        description:
+          "Actualmente realizamos envíos a todo el país. Estamos trabajando para expandir nuestras rutas y conectar con comunidades urbanas en todo el mundo muy pronto. Mantente atento a nuestras redes sociales para anuncios sobre envíos globales.",
+      },
+      {
+        title: '6. ¿Cuál es su política de cambios y devoluciones?',
+        description:
+        "Si la prenda no te queda como esperabas, tienes 14 días naturales desde la recepción para solicitar un cambio o devolución. La prenda debe estar en perfecto estado, sin uso y con sus etiquetas originales (incluyendo el Nexo ID intacto)."
+      },
+    ]}
+  />
+</Layout>
